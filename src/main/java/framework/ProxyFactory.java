@@ -13,10 +13,10 @@ import java.lang.reflect.Proxy;
  */
 public class ProxyFactory<T> {
 
-    public static <T> T getProxy(Class interfaceClass){
+    public static <T> T getProxy(final Class interfaceClass){
         return (T)Proxy.newProxyInstance(
                 interfaceClass.getClassLoader(), new Class[]{interfaceClass}, new InvocationHandler() {
-            @Override
+
             public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
 
                 // 调用哪个方法
